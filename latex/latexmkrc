@@ -1,0 +1,32 @@
+#!/usr/bin/env perl
+
+#output pdf delete
+system("rm -f $out_dir/$%0.pdf");
+
+# .drawio → .png
+system("python3 drawio_convert.py");
+
+## latex commands
+$latex            = 'lualatex --shell-escape -synctex=1 -interaction=nonstopmode -file-line-error -halt-on-error --output-driver="xdvipdfmx -E -d 4" %O %S';
+
+$bibtex           = 'upbibtex -kanji=utf8';
+$dvipdf           = 'dvipdfmx %O -o %D %S';
+
+$makeindex = 'upmendex -s ../indexstyle.ist -o %D %S';
+
+$max_repeat       = 5;
+
+$pdf_mode         = 4;
+
+$emulate_aux = 1;
+$aux_dir = ".tex_intermediates";
+
+use Cwd 'abs_path';
+END {
+	my $pdf = "$out_dir/$root_filename.pdf";  # if $out_dir is empty then current dir
+	system("python3 process_tex_intermediates.py");
+	system("echo --------------------");
+	system("echo Completed PDF: $pdf");
+	# system("python3 pdf2png_convert.py $pdf");
+	system("echo latexmk finish!");
+}

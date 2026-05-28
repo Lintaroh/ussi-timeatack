@@ -1,0 +1,234 @@
+\graphicspath{{./figure/appendix}}
+\partset{付録}{付録}{part.png}
+\begin{defbox}
+    雑多なものをいろいろ書いておきます。
+\end{defbox}
+\section{本書の公式GitHubリポジトリのごあんない}
+\graphicspath{{./figure/4/}}
+本書の公式GithubリポジトリのQRコードを\figref{gitQR}に載せておきます。インバータのkicadプロジェクトやソース・コード、各種資料などが置いてありますので、ぜひご活用ください。間違いがあった場合などもこちらが真っ先に更新されるのでサンプル・コードとか回路図見るときは本書よりこっちを参考にして下さい。\par
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{gitQR}
+    \caption{githubリポジトリのQRコード}
+    \figdescription{\url{https://github.com/IR2110/VVVF_ArduinoMicro}}
+    \figlabel{gitQR}
+\end{figure}
+
+\section[ATmega32U4のTIMER1の制御レジスタ群設定まとめ]{ATmega32U4のTIMER1の\\制御レジスタ群設定まとめ}
+TIMER1の仕様についての表や図を主に載せておきます。詳細はデータシートを参照してください。ありがたいことに有志が日本語のデータシートを作成してくれているのでぜひそちらを参考にしてみて下さい。\par
+\graphicspath{{./figure/4/}}
+\begin{table}[b!]
+    \centering
+    \caption{ATmega32U4のタイマ1の仕様}
+    \begin{tablebox}{|c|C|}\hline
+        \rowcolor{boxgray}
+        特徴 & 内容 \\\hline
+        分解能 & 16ビット \\\hline
+        クロック源 & 内部クロック（16MHz）または外部クロック \\\hline
+        分周比 & 1, 8, 64, 256, 1024 \\\hline
+        PWMモード & 高速PWM（ノコギリ波）、位相基準PWM（TOP更新の三角波）、位相/周波数基準PWM（BOTTOM更新の三角波） \\\hline
+        出力ピン & OC1A, OC1B, OC1C \\\hline
+    \end{tablebox}
+    \tablelabel{timer1-specs}
+\end{table}
+\begin{figure}[b!]
+    \centering
+    \includegraphics[width=\linewidth]{タイマ構成図}
+    \caption{ATmega32U4のタイマ1の構成図}
+    \figlabel{timer1-structure}
+\end{figure}
+~
+\begin{table}[t]
+    \centering
+    \caption{TCCR1Aレジスタのビット対応}
+    \begin{tablebox}{|c|c|C|}
+        \rowcolor{boxgray}ビット & 名前 & 説明 \\\hline
+        7 & \texttt{COM1A1} & 出力ピンの動作設定（OC1A） \\\hline
+        6 & \texttt{COM1A0} & 出力ピンの動作設定（OC1A） \\\hline
+        5 & \texttt{COM1B1} & 出力ピンの動作設定（OC1B） \\\hline
+        4 & \texttt{COM1B0} & 出力ピンの動作設定（OC1B） \\\hline
+        3 & \texttt{COM1C1} & 出力ピンの動作設定（OC1C） \\\hline
+        2 & \texttt{COM1C0} & 出力ピンの動作設定（OC1C） \\\hline
+        1 & \texttt{WGM11} & タイマの動作モード設定（PWM） \\\hline
+        0 & \texttt{WGM10} & タイマの動作モード設定（PWM） \\\hline
+    \end{tablebox}
+    \tablelabel{TCCR1A}
+\end{table}
+\begin{table}[t]
+    \centering
+    \caption{COM1x1/0ビットの動作}
+    \begin{tablebox}{c|c|C}
+        \rowcolor{boxgray}COM1x1 & COM1x0 & 意味 \\\hline
+        0 & 0 & 出力なし（標準ポート動作） \\\hline
+        0 & 1 & 特定のPWMモードのときOC1xピンのみコンペア・マッチでトグル \\\hline
+        1 & 0 & 上昇計数時のコンペア・マッチでLow \\\hline
+        1 & 1 & 上昇計数時のコンペア・マッチでHigh \\\hline
+    \end{tablebox}
+    \tablelabel{COM1x}
+\end{table}
+\begin{table}[t]
+    \centering
+    \caption{TCCR1Bレジスタのビット対応}
+    \begin{tablebox}{|c|c|C|}
+        \rowcolor{boxgray}ビット & 名前 & 説明 \\\hline
+        7 & \texttt{ICNC1} & 入力捕獲のノイズ除去有効/無効 \\\hline
+        6 & \texttt{ICES1} & 入力捕獲のエッジ選択（立ち上がり/立ち下がり） \\\hline
+        5 & - & 予約ビット（未使用） \\\hline
+        4 & \texttt{WGM13} & タイマの動作モード設定（PWM） \\\hline
+        3 & \texttt{WGM12} & タイマの動作モード設定（PWM） \\\hline
+        2 & \texttt{CS12} & クロック・ソースと分周比設定\\\hline
+        1 & \texttt{CS11} & クロック・ソースと分周比設定\\\hline
+        0 & \texttt{CS10} & クロック・ソースと分周比設定\\\hline
+    \end{tablebox}
+    \tablelabel{TCCR1B}
+\end{table}
+\begin{table}[t]
+    \centering
+    \caption{TCCR1Cレジスタのビット対応}
+    \begin{tablebox}{|c|c|C|}
+        \rowcolor{boxgray}ビット & 名前 & 説明 \\\hline
+        7 & \texttt{FOC1A} & 強制出力比較（OC1A） \\\hline
+        6 & \texttt{FOC1B} & 強制出力比較（OC1B） \\\hline
+        5 & \texttt{FOC1C} & 強制出力比較（OC1C） \\\hline
+        4-0 & - & 予約ビット（未使用） \\\hline
+    \end{tablebox}
+    \tablelabel{TCCR1C}
+\end{table}
+\begin{table}[t]
+    \centering
+    \caption{TIMSK1レジスタのビット対応}
+    \begin{tablebox}{|c|c|C|}
+        \rowcolor{boxgray}ビット & 名前 & 説明 \\\hline
+        7 & - & 予約ビット（未使用） \\\hline
+        6 & - & 予約ビット（未使用） \\\hline
+        5 & \texttt{ICIE1} & 入力捕獲割り込み有効化 \\\hline
+        4 & - & 予約ビット（未使用） \\\hline
+        3 & \texttt{OCIE1C} & コンペア・マッチC割り込み有効化 \\\hline
+        2 & \texttt{OCIE1B} & コンペア・マッチB割り込み有効化 \\\hline
+        1 & \texttt{OCIE1A} & コンペア・マッチA割り込み有効化 \\\hline
+        0 & \texttt{TOIE1} & オーバーフロー割り込み有効化 \\\hline
+    \end{tablebox}
+    \tablelabel{TIMSK1}
+\end{table}
+\begin{table}[t]
+    \centering
+    \caption{タイマ1の割り込みベクタ}
+    \begin{tablebox}{|c|C|}
+        \rowcolor{boxgray}割り込み & 割り込みベクタ \\\hline
+        コンペア・マッチA & \texttt{TIMER1\_COMPA\_vect} \\\hline
+        コンペア・マッチB & \texttt{TIMER1\_COMPB\_vect} \\\hline
+        コンペア・マッチC & \texttt{TIMER1\_COMPC\_vect} \\\hline
+        入力捕獲 & \texttt{TIMER1\_CAPT\_vect} \\\hline
+        オーバーフロー & \texttt{TIMER1\_OVF\_vect} \\\hline
+    \end{tablebox}
+    \tablelabel{timer1-interrupt-vectors}
+\end{table}
+\begin{table}[t]
+    \centering
+    \caption{CS12/11/10ビットの分周比設定}
+    \begin{tablebox}{c|c|c|C}
+        \rowcolor{boxgray}CS12 & CS11 & CS10 & 説明 \\\hline
+        0 & 0 & 0 & タイマ停止 \\\hline
+        0 & 0 & 1 & 分周比=1（分周なし） \\\hline
+        0 & 1 & 0 & 分周比=8 \\\hline
+        0 & 1 & 1 & 分周比=64 \\\hline
+        1 & 0 & 0 & 分周比=256 \\\hline
+        1 & 0 & 1 & 分周比=1024 \\\hline
+        1 & 1 & 0 & T1ピン立ち下がりエッジ \\\hline
+        1 & 1 & 1 & T1ピン立ち上がりエッジ \\\hline
+    \end{tablebox}
+    \tablelabel{CS12-11-10}
+\end{table}
+\clearpage
+\begin{table*}[t]
+    \centering
+    \caption{WGMビットの組み合わせと動作モード}
+    \begin{tablebox}{|c|c|c|c|C|c|c|c|}
+        \rowcolor{boxgray}WGM13 & WGM12 & WGM11 & WGM10 & 動作モード & TOP値 & OCR1x更新 & TOV1更新 \\\hline
+        0 & 0 & 0 & 0 & ノーマル・モード & 0xFFFF & 即値 & MAX \\\hline
+        0 & 0 & 0 & 1 & 8ﾋﾞｯﾄ位相基準PWM（三角波） & 0xFF & TOP & BOTTOM \\\hline
+        0 & 0 & 1 & 0 & 9ﾋﾞｯﾄ位相基準PWM（三角波） & 0x1FF & TOP & BOTTOM \\\hline
+        0 & 0 & 1 & 1 & 10ﾋﾞｯﾄ位相基準PWM（三角波） & 0x3FF & TOP & BOTTOM \\\hline
+        0 & 1 & 0 & 0 & 比較一致ﾀｲﾏ/ｶｳﾝﾀ解除（CTC）  & OCR1A & 即値 & MAX \\\hline
+        0 & 1 & 0 & 1 & 8ﾋﾞｯﾄ高速PWM（ノコギリ波） & 0xFF & BOTTOM & TOP \\\hline
+        0 & 1 & 1 & 0 & 9ﾋﾞｯﾄ高速PWM（ノコギリ波） & 0x1FF & BOTTOM & TOP \\\hline
+        0 & 1 & 1 & 1 & 10ﾋﾞｯﾄ高速PWM（ノコギリ波） & 0x3FF & BOTTOM & TOP \\\hline
+        1 & 0 & 0 & 0 & 位相/周波数基準PWM & ICR1 & BOTTOM & BOTTOM \\\hline
+        1 & 0 & 0 & 1 & 位相/周波数基準PWM & OCR1A & BOTTOM & BOTTOM \\\hline
+        1 & 0 & 1 & 0 & 位相基準PWM & ICR1 & TOP & BOTTOM \\\hline
+        1 & 0 & 1 & 1 & 位相基準PWM & OCR1A & TOP & BOTTOM \\\hline
+        1 & 1 & 0 & 0 & 比較一致ﾀｲﾏ/ｶｳﾝﾀ解除（CTC） & ICR1 & 即値 & MAX \\\hline
+        1 & 1 & 0 & 1 & （予約）& - & - & - \\\hline
+        1 & 1 & 1 & 0 & 高速PWM （ノコギリ波）& ICR1 & BOTTOM & TOP \\\hline
+        1 & 1 & 1 & 1 & 高速PWM （ノコギリ波）& OCR1A & BOTTOM & TOP \\\hline
+    \end{tablebox}
+    \tablelabel{WGM}
+\end{table*}
+\section{部品表}
+秋月とかで出来るだけ揃えた部品表を\tableref{秋月部品表}、再現性を考慮してDigikeyで揃えた場合の部品表を\tableref{Digikey部品表}に載せておきます。秋月とか普通に在庫限りの部品とかあるので売ってない可能性とかありますのでね…。注意として、基板を組み立てる最低限の部品のみを示しているので、なんか例えばY形端子とか適当な配線とか可変抵抗のつまみとかは載せていません。
+\onecolumn
+\begin{table}[b]
+    \centering
+    \caption{秋月電子で揃えた場合の部品表}
+    \fontsize{10\Q}{15\Q}\junL\selectfont
+    \begin{tabular}{Ic|c|c|cI}\hlineb
+        \rowcolor{boxgray}リファレンス                 & 数量 & 定数              & 型番（秋月準拠）           \\\hline
+        C8-C10, C13, C14, C18-C21, C29, C32, C33 & 12 & 0.1u            & GRM188F11H104ZA01  \\\hline
+        C11, C12                                 & 2  & 470u            & 共立とかで探すのだ！         \\\hline
+        C15, C16, C24, C25, C27, C28             & 6  & 470p            & DE0705B471K        \\\hline
+        C17, C26, C31                            & 3  & 1u              & 450MPS105J         \\\hline
+        C22, C23, C34                            & 3  & 10u             & RDEC71H106K3K1H03B \\\hline
+        C30                                      & 1  & 100u            & 35ZLH100MEFC6.3X11 \\\hline
+        D1                                       & 1  & -               & GBU8D              \\\hline
+        D2-D4                                    & 3  & -               & PG2010             \\\hline
+        F1                                       & 1  & 250V 5A         & MF51NR 250V 5      \\\hline
+        J1, J2, J7-J9                            & 1  & Screw\_Terminal & PCB-20(632)F       \\\hline
+        J4, J6                                   & 2  & Terminal        & TB111-2-2-U-1-1    \\\hline
+        J5                                       & 1  & Jack\_DC        & MJ-179PH           \\\hline
+        Q1-Q6                                    & 6  & -               & TK10A60D           \\\hline
+        R2-R4                                    & 3  & 330             & CF25J330RB         \\\hline
+        R5-R8, R19, R20                          & 6  & 1k              & CF25J1KB           \\\hline
+        R9-R18, R21, R22                         & 6  & 10              & RPS2512F10R        \\\hline
+        RV1                                      & 1  & 1k              & SH16K4B102L20KCCI  \\\hline
+        TH1                                      & 1  & Thermistor\_NTC & NTPAN1R0LDKB0      \\\hline
+        TP1-TP19                                 & 19 & TestPoint       & TEST-1(BK)         \\\hline
+        U1                                       & 1  & -               & A000053            \\\hline
+        U2-U4, U7-U10, U12, U13                  & 9  & -               & TLP152             \\\hline
+        U5, U6, U11                              & 3  & -               & IR2302             \\\hlineb
+    \end{tabular}
+    \tablelabel{秋月部品表}
+\end{table}
+
+\begin{table}[b]
+    \centering
+    \caption{Digikeyで揃えた場合の部品表}
+    \fontsize{10\Q}{15\Q}\junL\selectfont
+    \begin{tabular}{Ic|c|c|cI}\hlineb
+        \rowcolor{boxgray}リファレンス                 & 数量 & 定数              & 型番（Digikey準拠）             \\\hline
+        C8-C10, C13, C14, C18-C21, C29, C32, C33 & 12 & 0.1u            & GRM188F11H104ZA01         \\\hline
+        C11, C12                                 & 2  & 470u            & 565-EKMQ451VSN471MA45S-ND \\\hline
+        C15, C16, C24, C25, C27, C28             & 6  & 470p            & 564R60GAT47               \\\hline
+        C17, C26, C31                            & 3  & 1u              & 450MPS105J                \\\hline
+        C22, C23, C34                            & 3  & 10u             & RDEC71H106K3K1H03B        \\\hline
+        C30                                      & 1  & 100u            & 35ZLH100MEFC6.3X11        \\\hline
+        D1                                       & 1  & -               & GBU8D                     \\\hline
+        D2-D4                                    & 3  & -               & GPP20M-E3/73              \\\hline
+        F1                                       & 1  & 250V 5A         & 5HT 5-R                   \\\hline
+        J1, J2, J7-J9                            & 1  & Screw\_Terminal & 8197                      \\\hline
+        J4, J6                                   & 2  & Terminal        & 34.102                    \\\hline
+        J5                                       & 1  & Jack\_DC        & 54-00166                  \\\hline
+        Q1-Q6                                    & 6  & -               & STP10NM60N                \\\hline
+        R2-R4                                    & 3  & 330             & CF14JT330R                \\\hline
+        R5-R8, R19, R20                          & 6  & 1k              & CF14JT1K00                \\\hline
+        R9-R18, R21, R22                         & 6  & 10              & RSF2WSJT-73-10R           \\\hline
+        RV1                                      & 1  & 1k              & P231-FC15AR1K             \\\hline
+        TH1                                      & 1  & Thermistor\_NTC & BN-LG15Y5R0MYB            \\\hline
+        TP1-TP19                                 & 19 & TestPoint       & TEST-1(BK)                \\\hline
+        U1                                       & 1  & -               & A000053                   \\\hline
+        U2-U4, U7-U10, U12, U13                  & 9  & -               & TLP152                    \\\hline
+        U5, U6, U11                              & 3  & -               & IR2302                    \\\hlineb
+    \end{tabular}
+    \tablelabel{Digikey部品表}
+\end{table}
+\twocolumn
+\normalsize

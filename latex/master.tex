@@ -1,0 +1,27 @@
+
+\documentclass{style}
+\unimathsetup{warnings-off={mathtools-colon,mathtools-overbracket}}
+
+\nuritashi %塗り足し（裁ち落としマージン）追加
+
+% \sampleWaterMark %サンプル用ウォーターマーク追加
+
+\volume{2026年8月号}
+
+% 変数に対する単位には\un{}、数値に対する単位には\unn{}を使う
+
+\begin{document}
+\include{tableofcontents.tex}
+\clearemptydoublepage
+
+\include{1.tex}
+\clearemptydoublepage
+
+
+\include{atogaki.tex}
+\clearpage
+% \include{index.tex}
+\clearemptydoublepage
+\include{okuzuke.tex}
+
+\end{document}

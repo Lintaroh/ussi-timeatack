@@ -1,0 +1,445 @@
+
+\usepackage{float, multicol, newunicodechar,enumitem,ulem,titletoc,lipsum,mleftright,luacode,colortbl,array,tabularx,booktabs,everypage,ifthen,mleftright,mathtools,titlesec,luatexja,layout, dotseqn,fancyhdr,luatexja-preset,caption,siunitx,tabularray,lscape,listings,jvlisting}
+\usepackage[breakable,listingsutf8]{tcolorbox}
+\usepackage[balance]{nidanfloat}
+\usepackage[numbers]{natbib}
+
+%　カレントディレクトリの取得→フォントの参照可へ
+\usepackage[abspath]{currfile}
+% \edef\currfileabsdir{\directlua{tex.sprint(lfs.currfileabsdir())}/}
+
+\newunicodechar{（}{\hspace{-4pt}（} % 全角括弧の空きを詰め、間延び感をなくす
+\newunicodechar{）}{）\hspace{-4pt}}
+\newunicodechar{。}{．}%句読点置き換え
+\newunicodechar{、}{，}
+
+\tcbuselibrary{skins}
+
+%微分記号・関数・変数・定数マクロ
+\newcommand{\ddt}[1]{\dfrac{\textrm{d}#1}{\textrm{d}t}}
+\newcommand{\dt}{\textrm{d}t}
+\newcommand{\un}[1]{\,[\textrm{#1}]}
+\newcommand{\mr}[1]{\textrm{#1}}
+\renewcommand{\arcsin}{\textrm{sin}^\mr{-1}}
+\renewcommand{\arccos}{\textrm{cos}^\mr{-1}}
+\renewcommand{\arctan}{\textrm{tan}^\mr{-1}}
+
+\newcommand{\vus}{v_{\textrm{us}}}  \newcommand{\ius}{i_{\textrm{us}}}
+\newcommand{\vvs}{v_{\textrm{vs}}}  \newcommand{\ivs}{i_{\textrm{vs}}}
+\newcommand{\vws}{v_{\textrm{ws}}}  \newcommand{\iws}{i_{\textrm{ws}}}
+\newcommand{\vur}{v_{\textrm{ur}}}  \newcommand{\iur}{i_{\textrm{ur}}}
+\newcommand{\vvr}{v_{\textrm{vr}}}  \newcommand{\ivr}{i_{\textrm{vr}}}
+\newcommand{\vwr}{v_{\textrm{wr}}}  \newcommand{\iwr}{i_{\textrm{wr}}}
+
+\newcommand{\vds}{v_\mr{ds}}  \newcommand{\ids}{i_\mr{ds}}
+\newcommand{\vqs}{v_\mr{qs}}  \newcommand{\iqs}{i_\mr{qs}}
+\newcommand{\vdr}{v_\mr{dr}}  \newcommand{\idr}{i_\mr{dr}}
+\newcommand{\vqr}{v_\mr{qr}}  \newcommand{\iqr}{i_\mr{qr}}
+
+\newcommand{\Rs}{R_{\textrm{s}}} \newcommand{\Rr}{R_{\textrm{r}}}
+\newcommand{\Ls}{L_{\textrm{s}}} \newcommand{\Lr}{L_{\textrm{r}}}
+\newcommand{\LM}{L_{\textrm{M}}}
+\newcommand{\ls}{l_{\textrm{s}}} \newcommand{\lr}{l_{\textrm{r}}}
+\newcommand{\Lps}{L_\mr{s}^{\prime}} \newcommand{\Lpr}{L_\mr{r}^{\prime}}
+\newcommand{\LpM}{L^{\prime}_{\textrm{M}}}
+\newcommand{\wrm}{\omega_{\textrm{rm}}}   \newcommand{\thetarm}{\theta_{\textrm{rm}}}
+\newcommand{\wre}{\omega_{\textrm{re}}}   \newcommand{\thetare}{\theta_{\textrm{re}}}
+\newcommand{\we}{\omega_{\textrm{e}}}   \newcommand{\thetae}{\theta_{\textrm{e}}}
+\newcommand{\wsl}{\omega_\mr{sl}}
+\newcommand{\Fc}{F_{\textrm{c}}}    \newcommand{\Fn}{F_{\textrm{n}}}
+\DeclareOldFontCommand{\bf}{\normalfont}{\mathsf}
+
+%フォント指定マクロ
+\newcommand{\definenewfont}[2]{%deffont, fontfile
+    \newcommand{#1}{
+        \jfontspec{#2}
+        \fontspec{#2}
+    }
+}
+\definenewfont{\junM}{A-OTF-Jun34Pro-Medium.otf}
+\definenewfont{\junL}{A-OTF-Jun101Pr6-Medium.ttf}
+\definenewfont{\newsgothic}{NewsGothic.ttf}
+\definenewfont{\mbgothic}{A-OTF-GothicMB101-Pr6N.ttf}
+\definenewfont{\bbbgothic}{A-OTF-GothicBBBPr6-Medium.otf}
+\definenewfont{\bgothic}{A-OTF-FutoGoB101Pr6-Bold.otf}
+\definenewfont{\shingothicR}{A-OTF-ShinGoPr6-Regular.otf}
+\definenewfont{\shingothicM}{A-OTF-ShinGoPr6-Medium.otf}
+\definenewfont{\shingothicB}{A-OTF-ShinGoPr6-Bold.otf}
+
+\newcommand{\ital}[1]{
+    {\hspace{-0.25em}\addfontfeatures{RawFeature={+ital}}#1\hspace{-0.25em}}
+}
+\newcommand{\hwid}[1]{
+    {\addfontfeatures{RawFeature={+hwid}}#1\hspace{-0.25em}}
+}
+
+
+%色指定マクロ
+\definecolor{boxgray}{rgb}{0.937,0.937,0.937}     %box背景用の明るい方のグレー
+\definecolor{darkgray}{rgb}{0.443,0.443,0.443}    %subsectionの●とかに使われる暗いグレー
+%カラーの場合 227 82 148 → 0.88671 0.32  0.5781
+%\definecolor{darkgray}{rgb}{0.88671,0.32,0.5781}
+
+
+%式背景・灰色背景付きの本文
+\newtcolorbox{defbox}{
+enhanced,boxrule=0.0mm,top=0.70866pt,
+    bottom=0.70866pt,breakable,
+    arc=2mm,colback=boxgray,
+    enlarge bottom by = -1.5mm,
+    enlarge top by = -1.5mm,
+    left=0mm,right=0mm,
+    colframe=white
+}
+
+%図表説明の灰色背景
+\newtcolorbox{expfig}{
+    boxrule=0.0mm,top=-2pt,
+    bottom=-2pt,rounded corners=all,
+    arc=1.5mm,colback=boxgray,right=0mm,
+    colframe=white,fontupper=\fontsize{7.09pt}{0mm}\bbbgothic,
+    halign=flush left,left*=1.0mm,
+    enlarge top by = -1em
+}
+
+%sectionの装飾用box
+\newtcolorbox{sectionbox}{
+    height=12mm,boxrule=0.5mm,
+    arc=0mm,colback=white,
+    colframe=darkgray,
+    enlarge bottom by = -4.5mm,
+    enlarge bottom by = -3mm,
+    valign=center,sharp corners=all,
+    halign=flush center,
+    fonttitle=\bfseries
+}
+
+%newpartの装飾用box
+\newtcolorbox{partbox}{
+    height=48mm,width=\linewidth,boxrule=0.5mm,
+    arc=0mm,colback=white,
+    colframe=darkgray,enlarge bottom by = 1mm,
+    valign=top,sharp corners=all,
+    sidebyside,lefthand width=42mm,text fill,
+    halign=flush center,left=0mm,boxsep=0mm,right=0mm,
+    segmentation style={black,solid,line width=0.25mm},
+    subtitle style={
+        boxrule=0mm,
+        colframe=darkgray,
+        colback=darkgray
+    }
+}
+
+\newtcolorbox{tablebox}[1]{
+    tabularx={#1},
+    boxrule=0.3mm,
+    arc=0mm,colback=white,
+    colframe=black,
+    valign=center,sharp corners=all,
+    halign=flush center,
+    enlarge bottom by = -3mm,
+    enlarge top by = -3mm
+}
+
+\newtcbox{\smalltablebox}{
+    boxrule=0.3mm,
+    arc=0mm,colback=white,
+    colframe=black,
+    boxsep=0mm,
+    top=0mm,bottom=0mm,left=0mm,right=0mm,
+    valign=center,sharp corners=all,
+    halign=flush center,
+    enlarge bottom by = -3mm,
+    enlarge top by = -3mm
+}
+
+\newcounter{column}
+\setcounter{column}{1}
+\renewcommand{\thecolumn}{コラム\arabic{part}−\arabic{column}}
+
+\newtcolorbox{columnbox}[2][]{     %コラム用box
+    boxrule=0.5mm,
+    width=\linewidth,
+    % breakable,
+    arc=0mm,colback=white,
+    left=2mm,right=2mm,bottom=3mm,top=3mm,
+    colframe=black,sharp corners=all,squeezed title*=\scalebox{1.1}[1]{#2},
+    attach title to upper={\\},coltitle=black,
+    fonttitle=\fontsize{9.21pt}{0mm}\shingothicM,#1
+}
+\newenvironment{column}[2][]{
+    \addtocounter{column}{1}
+    \begin{columnbox}{{\addfontfeatures{RawFeature={+hwid}}\thecolumn}　#2}
+        \\[-10mm]
+        \phantomsection
+        \addcontentsline{toc}{section}{\thecolumn　#2}
+        \begin{multicols}{2}
+            \parindent = 3mm
+            #1
+}{\end{multicols}\end{columnbox}}
+
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\raggedright\arraybackslash}X}
+\newcolumntype{L}{>{\raggedleft\arraybackslash}X}
+
+%脚注
+\def\thefootnote{\arabic{footnote}}
+
+%その他のマクロ
+\newcommand{\figref}[1]{\textsf{図\ref{fig.\arabic{part}.#1}}}
+\newcommand{\tableref}[1]{\textsf{表\ref{tab.\arabic{part}.#1}}}
+\renewcommand{\eqref}[1]{式(\ref{eq.\arabic{part}.#1})}
+\newcommand{\listref}[1]{\textsf{リスト\ref{#1}}}
+\newcommand{\figlabel}[1]{\label{fig.\arabic{part}.#1}}
+\newcommand{\tablelabel}[1]{\label{tab.\arabic{part}.#1}}
+\newcommand{\eqlabel}[1]{\label{eq.\arabic{part}.#1}}
+
+
+%フォント設定
+%参考:https://qiita.com/zr_tex8r/items/0512dd43e9806483013a
+
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math} %デフォルト
+\setmathfont{A-OTF-RyuminPr6N-Math.otf}[
+    range={up/{latin,Latin,num},it/{latin,Latin}},
+    Scale=MatchUppercase
+]
+
+
+\setmainjfont[
+    UprightFont = *,
+    BoldFont = A-OTF-FutoGoB101Pr6-Bold.otf
+]{A-OTF-RyuminPr6-Light.otf}
+\setmainfont[
+    UprightFont = *,
+    BoldFont = A-OTF-FutoGoB101Pr6-Bold.otf
+]{A-OTF-RyuminPr6-Light.otf}
+
+\setsansfont{A-OTF-FutoGoB101Pr6-Bold.otf}
+\setsansjfont{A-OTF-FutoGoB101Pr6-Bold.otf}
+
+\setmonofont{Courier New.ttf}
+\setmonojfont{A-OTF-ShinGoPr6-Light.otf}
+
+\renewcommand{\jlreqxkanjiskip}{0.1\zw plus 0.1\zw minus 0.1\zw}
+
+
+%数式関連
+\mleftright %いい感じのかっこ
+
+\newenvironment{eq}                 %式環境
+    {\begin{flushleft}\begin{defbox} \begin{equation}}
+    {\end{equation}\end{defbox}\end{flushleft}}
+
+\newenvironment{eqpre}                 %式環境2（equationない版）
+    {\begin{flushleft}\begin{defbox}\vspace{-1em}}
+    {\end{defbox}\end{flushleft}}
+
+%式番号ドットで結ぶやつ
+\makeatletter
+\renewcommand\EqnDots{\hspace{-0.01mm}\leaders\hbox{\kern1\p@ \hspace{-2pt}…\kern1\p@}\hfill}
+\makeatother
+
+
+
+%section subsection書式設定
+\newcounter{sectionNewLine}
+
+\titleformat{\section}[display]{\fontsize{11.34pt}{0.0mm}\junM\center}{}{0pt}{\begin{sectionbox}}[\end{sectionbox} \setcounter{sectionNewLine}{1}]
+
+\renewcommand{\subsection}[1]{
+    \stepcounter{subsection}
+    \ifthenelse{\value{sectionNewLine}=2}{\vspace{3mm}}{}
+    \begin{itemize}[nosep,leftmargin=1.5em,labelwidth=1em,labelsep=0.5em]
+        \item[\color{darkgray}●]\textsf{#1}
+    \end{itemize}
+    \setcounter{sectionNewLine}{2}\par
+}
+
+\renewcommand{\subsubsection}[1]{
+    \stepcounter{subsubsection}
+    \ifthenelse{\value{sectionNewLine}=2}{\vspace{3mm}}{}
+    \par
+    \begin{itemize}[nosep,leftmargin=1em,labelwidth=1em,labelsep=0.0em]
+        \item[▶︎] #1
+    \end{itemize}
+    \setcounter{sectionNewLine}{2} \par
+}
+
+
+%part書式設定
+%第1引数: 目次での名前，第2引数: 章見出しでの名前，第3引数: パート画像
+\newcommand{\prepart}[3]{
+    \begin{partbox}
+    % \vspace{-3mm}
+        \includegraphics[width=47mm]{#3}
+        \tcblower
+        \vspace{3mm}
+        \fboxrule=0mm
+        \addtocounter{part}{1}
+        \tcbsubtitle{\fontsize{14.45pt}{0mm}\shingothicB \fbox{\addfontfeatures{RawFeature={+fwid}}\thepart}}
+        \addtocounter{part}{-1}
+        \fontsize{23.39pt}{4.125mm}\shingothicM\part[#1]{#2}
+    \end{partbox}
+}
+\newcommand{\partset}[3]{
+    \begin{figure*}[!t]
+        \prepart{#1}{#2}{#3}
+    \end{figure*}
+}
+\titlespacing*{\part}{0pt}{0pt}{0pt}[0pt]
+\titleformat{\part}[hang]{}{}{0pt}{\fontsize{23.39pt}{4.125mm}\shingothicM\hspace{-2.5mm}}{}
+
+%キャプション書式設定
+\captionsetup{
+    format=hang,labelsep=quad,
+    justification=RaggedRight,
+    singlelinecheck=false,
+    font={small,sf,stretch=0.80}
+}
+
+\newcommand{\subcaption}[1]{
+\begin{expfig}#1\end{expfig}
+}
+
+%ページ設定
+% \setlength{\columnsep}{6mm}
+% \setlength{\oddsidemargin}{0mm}
+% \setlength{\hoffset}{0mm}
+% \geometry{left=15truemm,bottom=15truemm,right=15truemm,top=15truemm}
+% \setlength{\footskip}{8mm}
+
+%ページノンブル(フッタ)書式設定
+\newcommand{\volume}[1]{
+    \fancyfoot[RE]{\vspace{5mm}\includegraphics[height=2.7mm]{logo.png}\hspace{1.5mm}\raisebox{0.3mm}[0pt][0pt]{#1}}
+    \fancyfoot[LO]{\vspace{5mm}\includegraphics[height=2.7mm]{logo.png}\hspace{1.5mm}\raisebox{0.3mm}[0pt][0pt]{#1}}
+}
+\renewcommand{\headrulewidth}{0.0pt}
+\pagestyle{fancy}
+\fancyfoot{\newsgothic} \fancyhead{}
+\fancyfoot[LE]{\newsgothic\selectfont\thepage}
+\fancyfoot[RO]{\newsgothic\selectfont\thepage}
+
+%表設定
+\newcolumntype{I}{!{\vrule width 0.5mm}} %外枠縦
+
+%図挿入設定
+\renewcommand{\topfraction}{1.0}
+\renewcommand{\bottomfraction}{1.0}
+\renewcommand{\textfraction}{.15}
+\renewcommand{\floatpagefraction}{.66}
+\setcounter{topnumber}{100}
+\setcounter{bottomnumber}{100}
+\setcounter{totalnumber}{100}
+
+%番号
+\makeatletter
+
+\@addtoreset{equation}{part}
+\renewcommand{\theequation}{\arabic{part}.\arabic{equation}}
+
+\@addtoreset{figure}{part}
+\renewcommand{\thefigure}{\arabic{part}.\arabic{figure}}
+
+\@addtoreset{table}{part}
+\renewcommand{\thetable}{\arabic{part}.\arabic{table}}
+
+\@addtoreset{section}{part}
+\renewcommand{\thesection}{\arabic{part}.\arabic{section}}
+
+\@addtoreset{subsection}{part}
+\renewcommand{\thesubsection}{\arabic{part}.\arabic{subsection}}
+
+\@addtoreset{column}{part}
+\renewcommand{\thecolumn}{コラム\arabic{part}−\arabic{column}}
+
+\AtBeginDocument{% リスト番号の付け方
+	\renewcommand*{\thelstlisting}{\arabic{part}.\arabic{lstlisting}}
+	\@addtoreset{lstlisting}{part}
+}
+
+\makeatother
+\renewcommand{\thepart}{第\arabic{part}章}
+
+
+%cleardoublepage置き換え
+\makeatletter
+\newcommand{\clearemptydoublepage}{%
+    \clearpage
+    {\pagestyle{fancy}% emptyでも可能
+        \if@twoside
+        \ifodd\c@page
+        \hbox{}%
+        \vspace*{\fill}%
+        \thispagestyle{fancy}% emptyでも可能
+        \newpage
+        \if@twocolumn
+            \hbox{}%
+            \newpage
+        \fi
+        \fi
+    \fi
+}
+}
+\makeatother
+
+%ソースコード
+\lstset{
+    basicstyle = {\fontsize{7.09pt}{3mm}\ttfamily}, % 基本的なフォントスタイル
+    frame = {tbrl}, % 枠線の枠線。t: top, b: bottom, r: right, l: left
+    breaklines = true, % 長い行の改行
+    numbers = left, % 行番号の表示。left, right, none
+    showspaces = false, % スペースの表示
+    xleftmargin = 5mm,
+    numbersep = 2mm,
+    showstringspaces = false, % 文字列中のスペースの表示
+    showtabs = false, %　タブの表示
+    numberstyle = \ttfamily,
+    keywordstyle = \color{black}, % キーワードのスタイル。intやwhileなど
+    commentstyle = {\color{black}}, % コメントのスタイル
+    identifierstyle = \color{black}, % 識別子のスタイル　関数名や変数名
+    stringstyle = \color{black}, % 文字列のスタイル
+    captionpos = t, % キャプションの位置 t: 上、b: 下
+    columns=[l]{fullflexible},
+}
+\renewcommand{\lstlistingname}{リスト}
+
+
+%目次スタイル
+\contentsmargin{0.0em}
+\titlecontents{part}
+    [0pt]
+    {\addvspace{2em}\fontsize{14.17pt}{0mm}\shingothicM}
+    {\addfontfeatures{RawFeature={+fwid}}\contentslabel{0.0em}}
+    {}
+    {\normalsize\mbgothic\titlerule*{…} \newsgothic p.\contentspage}
+    [\addvspace{0.25em}\hrule height 0.1mm depth 0.1mm width 80mm]
+\titlecontents{section}
+    [2em]
+    {\addvspace{1.5em}\normalsize\shingothicR}
+    {}
+    {}
+    {\normalsize\mbgothic\titlerule*{…} \newsgothic p.\contentspage}
+    [\addvspace{-0.5em}]
+
+
+%ハイパーリンク
+\usepackage{bookmark}
+\usepackage{xurl}
+\hypersetup{
+    setpagesize=false,
+    luatex,
+    hidelinks,
+    unicode,
+    bookmarksdepth=3,
+    bookmarksnumbered=true,
+    final,
+    hypertexnames=false,
+    pdftitle={インバータ技術2023年12月号},
+    pdfsubject={ロステクから新技術までダ・ダ・ダ・大解剖！},
+    pdfauthor={IR製作所, Pv電子製作所},
+    pdfkeywords={インバータ, ベクトル制御, PWM}
+}
+
+%タイプセット制約緩和
+\setlength{\emergencystretch}{3em}

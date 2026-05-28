@@ -1,0 +1,121 @@
+{
+	"latex-workshop.latex.outDir": "./out",
+	"latex-workshop.latex.autoBuild.run": "onSave",
+	"latex-workshop.view.pdf.viewer": "tab",
+	"latex-workshop.view.pdf.ref.viewer": "auto",
+	"latex-workshop.view.pdf.zoom": "page-width",
+	"latex-workshop.intellisense.package.enabled": true,
+	"latex-workshop.bibtex-fields.sort.enabled": true,
+	"latex-workshop.latex.autoBuild.cleanAndRetry.enabled": true,
+	"latex-workshop.message.error.show": false,
+	"latex-workshop.linting.chktex.convertOutput.column.enabled": false,
+	"latex-workshop.linting.chktex.convertOutput.column.chktexrcTabSize": 4,
+	"latex-workshop.linting.chktex.exec.args": [
+		"-n22",
+		"-n30",
+		"-e16",
+		"-q"
+	],
+	"latex-workshop.latex.watch.pdf.delay": 25,
+	"latex-workshop.formatting.latex": "latexindent",
+	"latex-workshop.bibtex-format.tab": "tab",
+	"latex-workshop.view.pdf.color.light.pageColorsBackground": "#ffffff",
+	"latex-workshop.view.pdf.color.dark.pageColorsBackground": "#ffffff",
+	"latex-workshop.view.pdf.color.dark.pageColorsForeground": "#000000",
+	"latex-workshop.view.pdf.color.light.pageColorsForeground": "#000000",
+	"editor.insertSpaces": false,
+	"cSpell.words": [
+		"mathfont",
+		"newfontface",
+		"setmainfont",
+		"setmainjfont",
+		"setsansfont",
+		"setsansjfont",
+		"tstex",
+		"VVVF"
+	],
+	"latex-workshop.intellisense.label.command": [
+		"label",
+		"mylabel"
+	],
+	"latex-workshop.intellisense.label.reference": [
+		"ref",
+		"cref",
+		"Cref",
+		"autoref",
+		"nameref",
+		"vref",
+		"Vref",
+		"eqref",
+		"pageref",
+		"myref"
+	],
+	"latex-workshop.intellisense.update.aggressive.enabled": false,
+	"latex-workshop.intellisense.update.delay": 100,
+	"github.copilot.chat.commitMessageGeneration.instructions": [
+		{
+			"text": "必ず日本語で記述してください"
+		},
+		{
+			"text": "コミットメッセージは、最初にConventional Commitsに則って記述してください"
+		},
+		{
+			"text": "その後ファイルごとの詳細な変更内容を記述してください"
+		},
+		{
+			"text": "文体は必ず体言止めで。"
+		}
+	],
+	"explorer.fileNesting.enabled": true,
+	// 2. ネストのルールを定義する
+	"explorer.fileNesting.expand": false,
+	"explorer.fileNesting.patterns": {
+		// "親にしたいファイル名": "子にしたいファイルのパターン（カンマ区切り）"
+		"master.tex": "*.tex, *.ist, latexmkrc, style.cls",
+		"A-OTF-RyuminPr6-Light.otf": "*.ttf, *.otf, *.woff, *.woff2",
+	},
+	"material-icon-theme.files.associations": {
+		"_fonts": "font",
+		"*.clip": "image",
+		"*.json": "settings",
+		"*.ist": "tex"
+	},
+	"material-icon-theme.folders.associations": {
+		"out": "docs",
+		"作業用": "other"
+	},
+	"files.associations": {
+		"*.ist": "tex"
+	},
+	"latex-workshop.latex.autoBuild.onSave.files.ignore": [],
+	"latex-workshop.latex.recipes": [
+		{
+			"name": "latexmk",
+			"tools": [
+				"latexmk"
+			]
+		}
+	],
+	"latex-workshop.latex.tools": [
+		{
+			"name": "latexmk",
+			"command": "latexmk",
+			"args": [
+				"-synctex=1",
+				"-file-line-error",
+				"-interaction=nonstopmode",
+				"-halt-on-error",
+				"-lualatex",
+				"-outdir=%OUTDIR%",
+				"-f",
+				"-gg",
+				"%DOC%"
+			],
+			"env": {}
+		}
+	],
+	"latex-workshop.view.pdf.invert": 0,
+	"latex-workshop.view.pdf.color.dark.backgroundColor": "#ffffff",
+	"latex-workshop.view.pdf.invertMode.enabled": "never",
+	"workbench.experimental.webview.experimentalUseIframes": false
+}
