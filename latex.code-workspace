@@ -1,0 +1,58 @@
+{
+	"folders": [
+		{
+			"path": "latex"
+		}
+	],
+	"settings": {
+		"latex-workshop.view.pdf.viewer": "tab",
+		"latex-workshop.view.pdf.ref.viewer": "auto",
+		"latex-workshop.view.pdf.zoom": "page-width",
+		"latex-workshop.intellisense.package.enabled": true,
+		"latex-workshop.message.error.show": false,
+		"latex-workshop.latex.watch.pdf.delay": 25,
+		"latex-workshop.formatting.latex": "latexindent",
+		"latex-workshop.view.pdf.color.light.pageColorsBackground": "#ffffff",
+		"latex-workshop.view.pdf.color.dark.pageColorsBackground": "#ffffff",
+		"latex-workshop.view.pdf.color.dark.pageColorsForeground": "#000000",
+		"latex-workshop.view.pdf.color.light.pageColorsForeground": "#000000",
+		"latex-workshop.intellisense.label.command": [
+			"label",
+			"mylabel"
+		],
+		"latex-workshop.intellisense.update.aggressive.enabled": false,
+		"latex-workshop.intellisense.update.delay": 100,
+		"github.copilot.chat.commitMessageGeneration.instructions": [
+			{
+				"text": "必ず日本語で記述してください"
+			},
+			{
+				"text": "コミットメッセージは、最初にConventional Commitsに則って記述してください"
+			},
+			{
+				"text": "その後ファイルごとの詳細な変更内容を記述してください"
+			},
+			{
+				"text": "文体は必ず体言止めで。"
+			}
+		],
+		"explorer.fileNesting.expand": false,
+		"material-icon-theme.files.associations": {
+			"_fonts": "font",
+			"*.clip": "image",
+			"*.json": "settings",
+			"*.ist": "tex"
+		},
+		"material-icon-theme.folders.associations": {
+			"out": "docs",
+			"作業用": "other"
+		},
+		"files.associations": {
+			"*.ist": "tex"
+		},
+		"latex-workshop.latex.autoBuild.onSave.files.ignore": [],
+		"latex-workshop.view.pdf.invert": 0,
+		"latex-workshop.view.pdf.color.dark.backgroundColor": "#ffffff",
+		"latex-workshop.view.pdf.invertMode.enabled": "never"
+	}
+}

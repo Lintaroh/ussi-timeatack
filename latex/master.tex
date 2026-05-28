@@ -2,26 +2,47 @@
 \documentclass{style}
 \unimathsetup{warnings-off={mathtools-colon,mathtools-overbracket}}
 
-\nuritashi %塗り足し（裁ち落としマージン）追加
+% \nuritashi %塗り足し（裁ち落としマージン）追加
 
 % \sampleWaterMark %サンプル用ウォーターマーク追加
 
 \volume{2026年8月号}
-
+\graphicspath{{./figure/}}  % 章番号に合わせる
 % 変数に対する単位には\un{}、数値に対する単位には\unn{}を使う
 
 \begin{document}
-% \include{tableofcontents.tex}
-% \clearemptydoublepage
 
-\include{1.tex}
-\clearemptydoublepage
+% 著者
+\begin{figure*}[t!]
+    \centering
+    \begin{defbox}
+        5302, 5303, 5304
+    \end{defbox}
+\end{figure*}
+
+\section{目的}
+不確かさ\par
+\section{実験方法}
+\section{実験結果}
+\section{考察}
+\section{結論}
 
 
-% \include{atogaki.tex}
-% \clearpage
-% % \include{index.tex}
-% \clearemptydoublepage
-% \include{okuzuke.tex}
+
+
+ {
+  \vspace{1em}\fontsize{7.09pt}{10.63pt}\selectfont
+  \renewcommand{\section}[2]{
+      \begin{center}\textbf{◆~{#2}~◆}\end{center}
+  }
+  % \nocite{*}
+  % \bibliography{5}
+  \begin{thebibliography}{1}
+
+      \bibitem{17963}
+      M.~Depenbrock: ``Direct self-control (dsc) of inverter-fed induction machine'', IEEE Transactions on Power Electronics, \textsf{3}, 4, pp. 420--429 (1988).
+
+  \end{thebibliography}
+ }
 
 \end{document}

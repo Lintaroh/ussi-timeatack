@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.3.22)  28 MAY 2026 13:13
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.3.22)  28 MAY 2026 13:20
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/ir2302/Documents/ussi-timeatack/latex/master.tex
@@ -2155,8 +2155,6 @@ Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 546.
 Package hyperref Info: Option `final' set `true' on input line 546.
 Package hyperref Info: Option `hypertexnames' set `false' on input line 546.
 Package hyperref Info: Option `pdfdisplaydoctitle' set `true' on input line 546.
-) (/usr/local/texlive/2026/texmf-dist/tex/latex/jlreq/jlreq-trimmarks.sty
-Package: jlreq-trimmarks 2024/08/23 jlreq-trimmarks
 ) (/usr/local/texlive/2026/texmf-dist/tex/luatex/luatexja/patches/lltjp-tascmac.sty
 Package: lltjp-tascmac 2022-08-24 Patch to (t)ascmac for LuaTeX-ja
 {/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
@@ -2170,7 +2168,7 @@ Package translations Info: No language package found. I am going to use `english
 LaTeX Warning: Unused global option(s):
     [base].
 
-(./.tex_intermediates/master.aux (./.tex_intermediates/1.aux))
+(./.tex_intermediates/master.aux)
 \openout1 = master.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -2223,9 +2221,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 \c@lstlisting=\count437
 Package hyperref Info: Link coloring OFF on input line 13.
 \docmute@nestinglevel=\count438
-
-\openout2 = 1.aux
- (./1.tex(load cache: extra_jun34pro-medium.luc)
+(load cache: extra_jun34pro-medium.luc)
 
 Package fontspec Info: 
 (fontspec)             A-OTF-Jun34Pro-Medium scale = 1.
@@ -2249,13 +2245,13 @@ Package fontspec Info:
 (fontspec)              
 
 LaTeX Font Info:    Font shape `JT3/A-OTF-Jun34Pro-Medium.otf(0)/m/n' will be
-(Font)              scaled to size 11.38086pt on input line 12.
+(Font)              scaled to size 11.38086pt on input line 24.
 LaTeX Font Info:    Font shape `JY3/A-OTF-Jun34Pro-Medium.otf(0)/m/n' will be
-(Font)              scaled to size 11.38086pt on input line 12.
+(Font)              scaled to size 11.38086pt on input line 24.
 LaTeX Font Info:    Font shape `JT3/A-OTF-Jun34Pro-Medium.otf(0)/m/n' will be
-(Font)              scaled to size 8.53564pt on input line 12.
+(Font)              scaled to size 8.53564pt on input line 24.
 LaTeX Font Info:    Font shape `JY3/A-OTF-Jun34Pro-Medium.otf(0)/m/n' will be
-(Font)              scaled to size 8.53564pt on input line 12.
+(Font)              scaled to size 8.53564pt on input line 24.
 
 Package fontspec Info: 
 (fontspec)             Font family 'A-OTF-Jun34Pro-Medium.otf(1)' created for
@@ -2267,21 +2263,21 @@ Package fontspec Info:
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
 (fontspec)             <->"[A-OTF-Jun34Pro-Medium.otf]:mode=node;script=latn;language=dflt;"
 
-LaTeX Font Info:    Calculating math sizes for size <11.38086> on input line 12.
+LaTeX Font Info:    Calculating math sizes for size <11.38086> on input line 24.
 LaTeX Font Info:    Font shape `JY3/A-OTF-RyuminPr6-Light.otf(0)/m/n' will be
-(Font)              scaled to size 11.38086pt on input line 12.
+(Font)              scaled to size 11.38086pt on input line 24.
 LaTeX Font Info:    Font shape `JY3/A-OTF-RyuminPr6-Light.otf(0)/m/n' will be
-(Font)              scaled to size 7.96655pt on input line 12.
+(Font)              scaled to size 7.96655pt on input line 24.
 LaTeX Font Info:    Font shape `JY3/A-OTF-RyuminPr6-Light.otf(0)/m/n' will be
-(Font)              scaled to size 5.69043pt on input line 12.
+(Font)              scaled to size 5.69043pt on input line 24.
 LaTeX Font Info:    Font shape `TU/A-OTF-RyuminPr6N-Math.otf(0)/m/n' will be
-(Font)              scaled to size 11.38086pt on input line 12.
+(Font)              scaled to size 11.38086pt on input line 24.
 LaTeX Font Info:    Font shape `TU/A-OTF-RyuminPr6N-Math.otf(0)/m/n' will be
-(Font)              scaled to size 7.96655pt on input line 12.
+(Font)              scaled to size 7.96655pt on input line 24.
 LaTeX Font Info:    Font shape `TU/A-OTF-RyuminPr6N-Math.otf(0)/m/n' will be
-(Font)              scaled to size 5.69043pt on input line 12.
+(Font)              scaled to size 5.69043pt on input line 24.
 
-Overfull \hbox (1.89491pt too wide) in paragraph at lines 12--12
+Overfull \hbox (1.89491pt too wide) in paragraph at lines 24--24
   []$[]$[] 
  []
 
@@ -2290,7 +2286,7 @@ Package fontspec Info:
 (fontspec)             A-OTF-Jun34Pro-Medium scale = 1.
 
 
-Overfull \hbox (1.89491pt too wide) in paragraph at lines 21--21
+Overfull \hbox (1.89491pt too wide) in paragraph at lines 33--33
   []$[]$[] 
  []
 
@@ -2299,7 +2295,7 @@ Package fontspec Info:
 (fontspec)             A-OTF-Jun34Pro-Medium scale = 1.
 
 
-Overfull \hbox (1.89491pt too wide) in paragraph at lines 21--21
+Overfull \hbox (1.89491pt too wide) in paragraph at lines 33--33
   []$[]$[] 
  []
 
@@ -2308,7 +2304,7 @@ Package fontspec Info:
 (fontspec)             A-OTF-Jun34Pro-Medium scale = 1.
 
 
-Overfull \hbox (1.89491pt too wide) in paragraph at lines 21--21
+Overfull \hbox (1.89491pt too wide) in paragraph at lines 33--33
   []$[]$[] 
  []
 
@@ -2317,27 +2313,26 @@ Package fontspec Info:
 (fontspec)             A-OTF-Jun34Pro-Medium scale = 1.
 
 
-Overfull \hbox (1.89491pt too wide) in paragraph at lines 21--21
+Overfull \hbox (1.89491pt too wide) in paragraph at lines 33--33
   []$[]$[] 
  []
 
 LaTeX Font Info:    Font shape `JT3/A-OTF-RyuminPr6-Light.otf(0)/m/n' will be
-(Font)              scaled to size 7.09pt on input line 22.
+(Font)              scaled to size 7.09pt on input line 34.
 LaTeX Font Info:    Font shape `JY3/A-OTF-RyuminPr6-Light.otf(0)/m/n' will be
-(Font)              scaled to size 7.09pt on input line 22.
+(Font)              scaled to size 7.09pt on input line 34.
 LaTeX Font Info:    Font shape `JT3/A-OTF-RyuminPr6-Light.otf(0)/b/n' will be
-(Font)              scaled to size 7.09pt on input line 28.
+(Font)              scaled to size 7.09pt on input line 40.
 LaTeX Font Info:    Font shape `JY3/A-OTF-RyuminPr6-Light.otf(0)/b/n' will be
-(Font)              scaled to size 7.09pt on input line 28.
+(Font)              scaled to size 7.09pt on input line 40.
 LaTeX Font Info:    Font shape `JT3/A-OTF-GothicBBBPr6-Medium.otf(2)/m/n' will be
-(Font)              scaled to size 7.09pt on input line 31.
+(Font)              scaled to size 7.09pt on input line 43.
 LaTeX Font Info:    Font shape `JY3/A-OTF-GothicBBBPr6-Medium.otf(2)/m/n' will be
-(Font)              scaled to size 7.09pt on input line 31.
-)
+(Font)              scaled to size 7.09pt on input line 43.
 <figure/logo.png, id=43, 550.6974pt x 104.3097pt>
 File: figure/logo.png Graphic file (type png)
 <use figure/logo.png>
-Package luatex.def Info: figure/logo.png  used on input line 17.
+Package luatex.def Info: figure/logo.png  used on input line 48.
 (luatex.def)             Requested size: 40.55266pt x 7.68222pt.
 (load cache: extra_newsgothicmt.luc)
 
@@ -2370,9 +2365,9 @@ Package fontspec Info:
 (fontspec)              
 
 LaTeX Font Info:    Font shape `JT3/NewsGothic.ttf(0)/m/n' will be
-(Font)              scaled to size 8.53564pt on input line 17.
+(Font)              scaled to size 8.53564pt on input line 48.
 LaTeX Font Info:    Font shape `JY3/NewsGothic.ttf(0)/m/n' will be
-(Font)              scaled to size 8.53564pt on input line 17.
+(Font)              scaled to size 8.53564pt on input line 48.
 
 Package fontspec Info: 
 (fontspec)             Font family 'NewsGothic.ttf(1)' created for font
@@ -2395,11 +2390,10 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             NewsGothic scale = 1.
 
- [1
+[1
 
 
-
-<./figure/logo.png>] (./.tex_intermediates/master.aux (./.tex_intermediates/1.aux))
+<./figure/logo.png>] (./.tex_intermediates/master.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -2407,16 +2401,16 @@ L3 programming layer <2026-01-19>
 )
 
 Here is how much of LuaTeX's memory you used:
- 47783 strings out of 476076
+ 47566 strings out of 476076
  125244,1648299 words of node,token memory allocated
- 4108 words of node memory still in use:
-   35 hlist, 2 vlist, 18 rule, 3 glue, 4 kern, 1 penalty, 2 glyph, 1265 attribute, 66 glue_spec, 147 attribute_list, 5 write, 38 user_defined, 24 pdf_literal, 24 pdf_colorstack nodes
-   avail lists: 1:7,2:15719,3:1060,4:672,5:53,6:93,7:2131,8:5,9:706,10:12,11:120
- 69114 multiletter control sequences out of 65536+600000
- 136 fonts using 250816327 bytes
+ 4027 words of node memory still in use:
+   35 hlist, 2 vlist, 18 rule, 3 glue, 4 kern, 1 penalty, 2 glyph, 1232 attribute, 66 glue_spec, 144 attribute_list, 2 write, 38 user_defined, 24 pdf_literal, 24 pdf_colorstack nodes
+   avail lists: 1:8,2:13964,3:1057,4:666,5:53,6:93,7:1636,8:4,9:712,10:5,11:36
+ 68919 multiletter control sequences out of 65536+600000
+ 136 fonts using 250816567 bytes
  133i,14n,135p,2130b,2938s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <./NewsGothic.ttf><./A-OTF-GothicBBBPr6-Medium.otf><./A-OTF-FutoGoB101Pr6-Bold.otf><./A-OTF-Jun34Pro-Medium.otf><./A-OTF-RyuminPr6-Light.otf>
-Output written on master.pdf (1 page, 77715 bytes).
+Output written on master.pdf (1 page, 78154 bytes).
 
 PDF statistics: 111 PDF objects out of 1000 (max. 8388607)
  66 compressed objects within 1 object stream
