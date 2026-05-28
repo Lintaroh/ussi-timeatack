@@ -1364,26 +1364,6 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "誤差1%"
-		(exclude_from_sim no)
-		(at 29.718 145.796 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "0b9ee79a-e891-42b8-a812-94c1d8c4cc32")
-	)
-	(text "フォト・トランジスタ"
-		(exclude_from_sim no)
-		(at 25.146 127.254 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "1cdba4be-61fb-42ce-97b0-1eaf44a49d3e")
-	)
 	(text "Arduino\nA5pin"
 		(exclude_from_sim no)
 		(at 60.706 92.456 0)
@@ -1454,27 +1434,11 @@
 		)
 		(uuid "bd5767f5-650f-4247-be0e-9a14e49bcc46")
 	)
-	(text "Arduino\nA4pin"
-		(exclude_from_sim no)
-		(at 67.818 139.7 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "fdb0b28a-a876-4167-bb85-7511679bb724")
-	)
 	(junction
 		(at 87.63 92.71)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2681af21-ca05-4c56-a694-963448017b17")
-	)
-	(junction
-		(at 35.56 139.7)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4a094856-5a5a-4fb4-8371-e1e25876d344")
 	)
 	(junction
 		(at 35.56 62.23)
@@ -1535,16 +1499,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f7ecdafa-b8e3-4259-b651-f2d293794c5f")
-	)
-	(wire
-		(pts
-			(xy 35.56 128.27) (xy 35.56 125.73)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "09895742-9c15-4e5a-94cb-a7202b5f4b83")
 	)
 	(wire
 		(pts
@@ -1615,16 +1569,6 @@
 			(type default)
 		)
 		(uuid "39b8d471-0d3c-4985-9117-191237ea7363")
-	)
-	(wire
-		(pts
-			(xy 35.56 139.7) (xy 60.96 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "540a62bc-14ee-4a31-a295-9f1a5f6c8764")
 	)
 	(wire
 		(pts
@@ -1748,16 +1692,6 @@
 	)
 	(wire
 		(pts
-			(xy 19.05 115.57) (xy 127 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b513db55-17e6-417e-9cd2-d04aff25aea1")
-	)
-	(wire
-		(pts
 			(xy 87.63 92.71) (xy 100.33 92.71)
 		)
 		(stroke
@@ -1828,16 +1762,6 @@
 	)
 	(wire
 		(pts
-			(xy 35.56 139.7) (xy 35.56 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e15ab15d-9441-4983-8963-a09b1a3f3e5e")
-	)
-	(wire
-		(pts
 			(xy 35.56 91.44) (xy 35.56 92.71)
 		)
 		(stroke
@@ -1845,26 +1769,6 @@
 			(type default)
 		)
 		(uuid "e194a4e9-e7f4-4414-beb8-f7c988bd27cd")
-	)
-	(wire
-		(pts
-			(xy 35.56 138.43) (xy 35.56 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e27367d1-627f-4f08-a23f-c6982d418b4b")
-	)
-	(wire
-		(pts
-			(xy 35.56 149.86) (xy 35.56 153.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e71df0a1-6ba6-4844-9c3c-5676dcae9241")
 	)
 	(wire
 		(pts
@@ -2067,248 +1971,6 @@
 			(project "sokutei"
 				(path "/e4ae31af-26d3-4535-8ba6-0ab2defb03a1"
 					(reference "#PWR07")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:Q_Photo_NPN")
-		(at 33.02 133.35 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "212ef606-0cf4-4344-8653-423d0212bdcc")
-		(property "Reference" "Q2"
-			(at 38.1 131.3306 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "NJL7502L"
-			(at 38.1 133.8706 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 38.1 130.81 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 33.02 133.35 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "NPN phototransistor, collector/emitter"
-			(at 33.02 133.35 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "159b7158-1d63-4e37-9f1c-0fbd7be65747")
-		)
-		(pin "1"
-			(uuid "7173253b-d0f8-4b15-ae91-465dc7577344")
-		)
-		(instances
-			(project "sokutei"
-				(path "/e4ae31af-26d3-4535-8ba6-0ab2defb03a1"
-					(reference "Q2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 35.56 146.05 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "294acb0c-3cbc-4833-ae93-e1b8970aa568")
-		(property "Reference" "R5"
-			(at 38.1 144.7799 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100k"
-			(at 38.1 147.3199 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 33.782 146.05 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 35.56 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 35.56 146.05 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "1b6d175d-f8ac-42ed-a6b1-0433b36eedcf")
-		)
-		(pin "1"
-			(uuid "87584b7a-d77c-49e5-a1b9-d0378903dbeb")
-		)
-		(instances
-			(project "sokutei"
-				(path "/e4ae31af-26d3-4535-8ba6-0ab2defb03a1"
-					(reference "R5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 35.56 153.67 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3791a453-e73c-4932-a4de-0556b6c8010c")
-		(property "Reference" "#PWR010"
-			(at 35.56 160.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 35.56 158.75 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 35.56 153.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 35.56 153.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 35.56 153.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "59aab1cc-4c3e-4a11-80a7-ef224fc3be3d")
-		)
-		(instances
-			(project "sokutei"
-				(path "/e4ae31af-26d3-4535-8ba6-0ab2defb03a1"
-					(reference "#PWR010")
 					(unit 1)
 				)
 			)
@@ -3310,84 +2972,6 @@
 			(project "sokutei"
 				(path "/e4ae31af-26d3-4535-8ba6-0ab2defb03a1"
 					(reference "#PWR05")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 35.56 125.73 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "bdfa5234-b324-4fa0-9189-9b54ceea6077")
-		(property "Reference" "#PWR09"
-			(at 35.56 129.54 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 35.56 120.65 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 35.56 125.73 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 35.56 125.73 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 35.56 125.73 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b8f0ae3d-2426-4b62-bee1-e3be0e1142b9")
-		)
-		(instances
-			(project "sokutei"
-				(path "/e4ae31af-26d3-4535-8ba6-0ab2defb03a1"
-					(reference "#PWR09")
 					(unit 1)
 				)
 			)
