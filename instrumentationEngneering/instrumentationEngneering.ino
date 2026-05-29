@@ -201,6 +201,15 @@ void loop() {
 
     float targetLux = lx_ref[lx_index];
 
+    Serial.print(targetLux);
+    Serial.print(", ");
+    Serial.print(currentLux);
+    Serial.print(", ");
+    Serial.print(cds_ohm, 4);
+    Serial.print(", ");
+    Serial.print(tr_current, 8);
+    Serial.println();
+
     bool is_lx_captured = targetLux * (1 - lx_margin / 2) < currentLux && targetLux * (1 + lx_margin / 2) > currentLux;
     if (mea) {
       lx_index++;
